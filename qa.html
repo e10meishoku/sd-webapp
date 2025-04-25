@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stable Diffusion Q&A</title>
+
+  <style>
+    :root{
+      --accent:#1a365d;
+      --bg-light:#f5f5f5;
+      --bg-white:#fff;
+      --text:#333;
+    }
+    body{
+      font-family:"Helvetica Neue",Arial,sans-serif;
+      line-height:1.6;color:var(--text);
+      background:var(--bg-light);
+      margin:0;padding:0;
+    }
+    .container{max-width:100%;padding:20px;}
+    h1{font-size:28px;color:var(--accent);text-align:center;margin:20px 0 30px;}
+    /* ナビ */
+    .nav-btn{
+      display:inline-block;padding:10px 20px;margin:10px;
+      background:var(--accent);color:#fff;border-radius:8px;
+      text-decoration:none;font-weight:bold;
+      transition:.2s;
+    }
+    .nav-btn:hover{opacity:.8;}
+    /* Q&A */
+    .qa-item{margin-bottom:15px;}
+    .qa-question{
+      background:var(--accent);color:#fff;
+      padding:10px 15px;border-radius:8px 8px 0 0;
+      cursor:pointer;position:relative;
+    }
+    .qa-question::after{
+      content:"+";
+      position:absolute;right:15px;top:10px;
+    }
+    .qa-answer{
+      background:#f9f9f9;padding:15px;border-radius:0 0 8px 8px;
+      display:none;border:1px solid #eee;
+    }
+    input[type="checkbox"]{display:none;}
+    input[type="checkbox"]:checked + .qa-answer{display:block;}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ナビ -->
+    <nav style="text-align:center;">
+      <a href="index.html" class="nav-btn">トップへ戻る</a>
+    </nav>
+
+    <h1>Stable Diffusion Q&A</h1>
+
+    <div class="qa-item">
+      <label for="q1" class="qa-question">Q1. 最低限必要な IT スキルは？</label>
+      <input type="checkbox" id="q1">
+      <div class="qa-answer">
+        ★必須スキル：Diffusionモデル理論・PyTorch、Kubernetes & GPU運用、コンテナ/CI-CD、API設計、クラウドコスト管理。
+
+        その他に役立つスキル：セキュリティ、フロント開発、データベース、MLOps、AI倫理。
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <label for="q2" class="qa-question">Q2. 生成速度を向上させる最新の手法は？</label>
+      <input type="checkbox" id="q2">
+      <div class="qa-answer">
+        SDXL TurboやLDM-4などの生成ステップ短縮研究により、待ち時間を10倍以上短縮可能。また推論時にONNX・TensorRTへの変換やGPUメモリ最適化で2~4倍の速度向上が実現できます。
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <label for="q3" class="qa-question">Q3. 収支バランスはどうなりますか？</label>
+      <input type="checkbox" id="q3">
+      <div class="qa-answer">
+        年間コスト：GPU 180K USD、ストレージ/CDN 24K USD、人件費 600K USD、マーケ/営業 150K USD、管理費 70K USDで、損益分岐点は有料ユーザ 7,000 人（Proプラン相当）です。
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <label for="q4" class="qa-question">Q4. 主なリスク要因は？</label>
+      <input type="checkbox" id="q4">
+      <div class="qa-answer">
+        ①法規制(著作権・AI規制)：トレースチェック＋ライセンス自動付与
+
+        ②GPU価格高騰：マルチクラウド＋スポット活用＋最適化
+
+        ③品質競争：日本文化・広告構図の独自学習データ継続蓄積
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <label for="q5" class="qa-question">Q5. 初期ユーザー獲得戦略は？</label>
+      <input type="checkbox" id="q5">
+      <div class="qa-answer">
+        ハッカソン開催と Twitter コミュニティ活用で 3,000 クリエイターを獲得し、ローンチ 6 か月後には Shopify アプリ連携で EC 店舗へ浸透。その後、生成画像ライブラリ公開や Canva プラグイン提供で拡大します。
+      </div>
+    </div>
+
+    <!-- ページ下部ナビ -->
+    <p style="text-align:center;margin-top:40px;">
+      <a href="index.html" class="nav-btn">▲ トップへ戻る ▲</a>
+    </p>
+  </div>
+</body>
+</html>

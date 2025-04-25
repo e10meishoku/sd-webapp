@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stable Diffusion ウェブアプリ開発ガイド</title>
+
+  <style>
+    :root{
+      --accent:#1a365d;
+      --bg-light:#f5f5f5;
+      --bg-white:#fff;
+      --text:#333;
+      --highlight:#ffeb3b;
+    }
+    body{
+      font-family:"Helvetica Neue",Arial,sans-serif;
+      line-height:1.6;
+      color:var(--text);
+      background:var(--bg-light);
+      margin:0;padding:0;
+    }
+    .container{max-width:100%;padding:20px;}
+    section{
+      background:var(--bg-white);
+      border-radius:12px;
+      padding:20px;
+      margin-bottom:30px;
+      box-shadow:0 4px 6px rgba(0,0,0,.1);
+    }
+    h1{font-size:28px;color:var(--accent);text-align:center;margin-bottom:25px;}
+    h2{font-size:24px;border-bottom:3px solid var(--accent);padding-bottom:10px;margin-top:30px;}
+    h3{font-size:20px;color:var(--accent);}
+    .summary{
+      font-size:18px;font-weight:bold;
+      background:rgba(26,54,93,.05);
+      padding:15px;border-left:4px solid var(--accent);margin:20px 0;
+    }
+    .highlight{background:linear-gradient(transparent 60%,var(--highlight) 60%);font-weight:bold;}
+    .key-term{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;font-weight:bold;}
+    ul{padding-left:20px;} li{margin-bottom:10px;}
+    hr{border:0;height:1px;background:#ddd;margin:30px 0;}
+    /*―― ナビゲーションボタン ――*/
+    .nav-btn{
+      display:inline-block;padding:10px 20px;margin:10px;
+      background:var(--accent);color:#fff;border-radius:8px;
+      text-decoration:none;font-weight:bold;
+      transition:.2s;
+    }
+    .nav-btn:hover{opacity:.8;}
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ナビゲーション -->
+    <nav style="text-align:center;margin-bottom:20px;">
+      <a href="index.html" class="nav-btn">トップ</a>
+      <a href="qa.html"   class="nav-btn">Q&A 一覧へ</a>
+    </nav>
+
+    <h1>オリジナル Stable Diffusion
+ウェブアプリ構築ガイド</h1>
+
+    <!-- I. 技術アーキテクチャ -->
+    <section>
+      <div class="summary">
+        独自AI画像生成モデルをウェブアプリ化するには、<span class="highlight">GPU最適化された推論基盤</span>から<span class="highlight">UI設計</span>まで一気通貫の知識が必要。「日本語特化×高速×企業向けセキュア」の差別化で収益化可能。
+      </div>
+
+      <hr>
+
+      <h2>I. 技術アーキテクチャ</h2>
+      <div class="summary">画像生成AIをウェブアプリに組み込むには、高性能GPUを活用した5層のアーキテクチャ設計が必要</div>
+      <ul>
+        <li><span class="key-term">モデルレイヤ</span>：PyTorch/Diffusersで実装、ONNX変換で2~4倍高速化</li>
+        <li><span class="key-term">推論サービスレイヤ</span>：FastAPIでエンドポイント公開、KubernetesでGPUスケール</li>
+        <li><span class="key-term">APIゲートウェイ</span>：認証・制限・監視機能を実装</li>
+        <li><span class="key-term">フロントエンド</span>：Next.js/ReactでUI構築、CDN最適化</li>
+        <li><span class="key-term">データレイヤ</span>：S3/PostgreSQLで画像・メタデータ管理</li>
+        <li><span class="key-term">MLOps/DevOps</span>：継続的デリバリ、コスト最適化、コンテンツポリシー</li>
+      </ul>
+
+      <hr>
+
+      <!-- II. ビジネスプラン -->
+      <h2>II. ビジネスプラン</h2>
+      <div class="summary">2028年に1100億USD規模の成長市場。3つの差別化ポイントで競合と差別化し、複数の収益源を確保</div>
+
+      <h3>市場と差別化戦略</h3>
+      <ul>
+        <li>競合：Midjourney、Adobe Firefly、Canva、DALL-E 3</li>
+        <li><span class="key-term">差別化ポイント</span>：①日本語特化 ②企業向けカスタム学習 ③プライベート環境</li>
+        <li><span class="key-term">ターゲット</span>：クリエイター、EC・広告代理店、エンタープライズ</li>
+      </ul>
+
+      <h3>収益モデル</h3>
+      <ul>
+        <li><span class="key-term">SaaS</span>：Free(50枚/月)→Pro($29)→Studio($99)</li>
+        <li><span class="key-term">API課金</span>：0.2¢/ステップ</li>
+        <li><span class="key-term">カスタムモデル受託</span>：50~300万円/プロジェクト</li>
+        <li><span class="key-term">オンプレライセンス</span>：GPUノード数課金＋年間保守</li>
+      </ul>
+
+      <hr>
+
+      <!-- III. 実行ロードマップ -->
+      <h2>III. 実行ロードマップ</h2>
+      <div class="summary">4四半期で段階的に機能拡充し、ユーザー獲得と収益化を実現</div>
+      <ul>
+        <li><span class="key-term">Q1</span>：開発基盤整備(CI/CD, Monitoring)、ベータ版UI</li>
+        <li><span class="key-term">Q2</span>：課金システム、API公開、Fine-tuningワークフロー</li>
+        <li><span class="key-term">Q3</span>：モバイルPWA、SDXL対応、広告代理店PoC 3社</li>
+        <li><span class="key-term">Q4</span>：企業向けVPCデプロイ、プラグインマーケット</li>
+      </ul>
+
+      <hr>
+
+      <h2>まとめ</h2>
+      <div class="summary">
+        <span class="highlight">技術面</span>では、GPU最適化された推論サービスを中心に全体アーキテクチャを設計。<span class="highlight">ビジネス面</span>では、日本語特化・高速・セキュアの差別化で、サブスク・API・受託の複合収益モデルを構築。
+      </div>
+    </section>
+
+    <!-- 用語集 -->
+    <section>
+      <h2>重要用語・事実リスト</h2>
+      <table>
+        <tr><th>用語</th><th>説明</th></tr>
+        <tr><td>Stable Diffusion</td><td>ノイズを徐々に除去して画像を生成する拡散モデル。高品質だが計算負荷が高い</td></tr>
+        <tr><td>ONNX / TensorRT</td><td>AIモデルの最適化フレームワーク。推論速度を2~4倍高速化できる</td></tr>
+        <tr><td>Kubernetes (K8s)</td><td>コンテナオーケストレーションツール。GPU付きサーバーの自動スケーリングに活用</td></tr>
+        <tr><td>LoRA</td><td>少ないデータでモデルを特定スタイルに調整できる手法。ブランド特化に有効</td></tr>
+        <tr><td>MLOps</td><td>機械学習モデルの開発・運用・管理を自動化するプラクティス</td></tr>
+        <tr><td>生成AI市場規模</td><td>2028年に1100億USD、年間成長率42％の予測</td></tr>
+      </table>
+    </section>
+
+    <!-- 末尾にも Q&A への導線 -->
+    <p style="text-align:center;">
+      <a href="qa.html" class="nav-btn">▼ Q&A をもっと見る ▼</a>
+    </p>
+
+  </div><!-- /.container -->
+</body>
+</html>
