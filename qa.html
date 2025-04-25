@@ -9,7 +9,6 @@
     :root{
       --accent:#1a365d;
       --bg-light:#f5f5f5;
-      --bg-white:#fff;
       --text:#333;
     }
     body{
@@ -20,14 +19,15 @@
     }
     .container{max-width:100%;padding:20px;}
     h1{font-size:28px;color:var(--accent);text-align:center;margin:20px 0 30px;}
+
     /* ナビ */
     .nav-btn{
       display:inline-block;padding:10px 20px;margin:10px;
       background:var(--accent);color:#fff;border-radius:8px;
-      text-decoration:none;font-weight:bold;
-      transition:.2s;
+      text-decoration:none;font-weight:bold;transition:.2s;
     }
     .nav-btn:hover{opacity:.8;}
+
     /* Q&A */
     .qa-item{margin-bottom:15px;}
     .qa-question{
@@ -41,7 +41,7 @@
     }
     .qa-answer{
       background:#f9f9f9;padding:15px;border-radius:0 0 8px 8px;
-      display:none;border:1px solid #eee;
+      display:none;border:1px solid #eee;white-space:pre-wrap;
     }
     input[type="checkbox"]{display:none;}
     input[type="checkbox"]:checked + .qa-answer{display:block;}
@@ -50,60 +50,139 @@
 <body>
   <div class="container">
 
-    <!-- ナビ -->
     <nav style="text-align:center;">
       <a href="index.html" class="nav-btn">トップへ戻る</a>
     </nav>
 
     <h1>Stable Diffusion Q&A</h1>
 
+    <!-- Q1 -->
     <div class="qa-item">
       <label for="q1" class="qa-question">Q1. 最低限必要な IT スキルは？</label>
       <input type="checkbox" id="q1">
       <div class="qa-answer">
-        ★必須スキル：Diffusionモデル理論・PyTorch、Kubernetes & GPU運用、コンテナ/CI-CD、API設計、クラウドコスト管理。
+★必須スキル：Diffusionモデル理論・PyTorch、Kubernetes & GPU運用、コンテナ/CI-CD、API設計、クラウドコスト管理。
 
-        その他に役立つスキル：セキュリティ、フロント開発、データベース、MLOps、AI倫理。
+その他に役立つスキル：セキュリティ、フロント開発、データベース、MLOps、AI倫理。
       </div>
     </div>
 
+    <!-- Q2 -->
     <div class="qa-item">
       <label for="q2" class="qa-question">Q2. 生成速度を向上させる最新の手法は？</label>
       <input type="checkbox" id="q2">
       <div class="qa-answer">
-        SDXL TurboやLDM-4などの生成ステップ短縮研究により、待ち時間を10倍以上短縮可能。また推論時にONNX・TensorRTへの変換やGPUメモリ最適化で2~4倍の速度向上が実現できます。
+SDXL Turbo や LDM-4 などの生成ステップ短縮研究により、待ち時間を 10 倍以上短縮可能。  
+また推論時に ONNX・TensorRT へ変換し GPU メモリ最適化すると 2〜4 倍の追加高速化が得られます。
       </div>
     </div>
 
+    <!-- Q3 -->
     <div class="qa-item">
       <label for="q3" class="qa-question">Q3. 収支バランスはどうなりますか？</label>
       <input type="checkbox" id="q3">
       <div class="qa-answer">
-        年間コスト：GPU 180K USD、ストレージ/CDN 24K USD、人件費 600K USD、マーケ/営業 150K USD、管理費 70K USDで、損益分岐点は有料ユーザ 7,000 人（Proプラン相当）です。
+年間コスト：GPU 180K USD、ストレージ/CDN 24K、⼈件費 600K、マーケ/営業 150K、管理費 70K。  
+損益分岐点は有料ユーザ約 7,000 ⼈（Pro プラン相当）です。
       </div>
     </div>
 
+    <!-- Q4 -->
     <div class="qa-item">
       <label for="q4" class="qa-question">Q4. 主なリスク要因は？</label>
       <input type="checkbox" id="q4">
       <div class="qa-answer">
-        ①法規制(著作権・AI規制)：トレースチェック＋ライセンス自動付与
-
-        ②GPU価格高騰：マルチクラウド＋スポット活用＋最適化
-
-        ③品質競争：日本文化・広告構図の独自学習データ継続蓄積
+① 法規制(著作権・AI規制)：トレースチェック＋ライセンス自動付与  
+② GPU 価格高騰：マルチクラウド＋スポット活用＋最適化  
+③ 品質競争：日本文化・広告構図の独自学習データ継続蓄積
       </div>
     </div>
 
+    <!-- Q5 -->
     <div class="qa-item">
       <label for="q5" class="qa-question">Q5. 初期ユーザー獲得戦略は？</label>
       <input type="checkbox" id="q5">
       <div class="qa-answer">
-        ハッカソン開催と Twitter コミュニティ活用で 3,000 クリエイターを獲得し、ローンチ 6 か月後には Shopify アプリ連携で EC 店舗へ浸透。その後、生成画像ライブラリ公開や Canva プラグイン提供で拡大します。
+ハッカソン開催と Twitter コミュニティ活用で 3,000 クリエイターを獲得。  
+ローンチ 6 か月後に Shopify アプリ連携で EC 店舗へ浸透し、その後 Canva プラグイン提供で拡大します。
       </div>
     </div>
 
-    <!-- ページ下部ナビ -->
+    <!-- Q6 -->
+    <div class="qa-item">
+      <label for="q6" class="qa-question">Q6. どこで GPU を動かすのか？</label>
+      <input type="checkbox" id="q6">
+      <div class="qa-answer">
+• パブリッククラウド（AWS/GCP/Azure）が一般的  
+• コストや機密保持重視ならオンプレ/Colo も可  
+• いずれも Kubernetes でスケール
+
+ユーザー端末は軽量プロンプトを送り、生成済み画像 URL を受取るだけなのでスマホでも快適。
+
+デメリット対策  
+• インスタンス高騰→スポット/RI・マルチクラウド  
+• レイテンシー→SDXL Turbo 等でステップ短縮＋リージョン分散  
+• 規制→顧客要件で VPC/オンプレ対応
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="qa-item">
+      <label for="q7" class="qa-question">Q7. 1 か月のサーバー代はいくら？</label>
+      <input type="checkbox" id="q7">
+      <div class="qa-answer">
+【前提】768×768 / 30 step / A10G(4 秒), AWS 東京 (2024/6)
+
+① ミニマム MVP（同時5リク・月30万枚）  
+　g5.xlarge ×5：¥540,000（スポット ~¥190,000）  
+　補助 ¥70,000 / S3+CDN ¥20,000 → 約 ¥630,000（最適化 ¥280,000）
+
+② グロース（同時20リク・月120万枚）  
+　g5.2xlarge ×20：¥1.58M（RI ¥0.98M） 他込 約 ¥1.8M
+
+③ エンタープライズ（同時50リク・月300万枚）  
+　p4d.24xlarge ×3：¥26M（3年RI ¥11.7M） 他込 約 ¥26.8M（最適化 ¥12.5M）
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="qa-item">
+      <label for="q8" class="qa-question">Q8. Streamlit で簡易 MVP を作れない？</label>
+      <input type="checkbox" id="q8">
+      <div class="qa-answer">
+Streamlit だけでも「触れる MVP」は十分作れる。
+
+【構成】  
+ユーザー → Streamlit(Python) → 同一サーバー上の GPU
+
+<pre><code class="language-python">import torch, diffusers as d, streamlit as st
+
+pipe = d.StableDiffusionPipeline.from_pretrained(
+    "YourModel", torch_dtype=torch.float16).to("cuda")
+
+prompt = st.text_input("プロンプト")
+if st.button("生成"):
+    img = pipe(prompt, num_inference_steps=30).images[0]
+    st.image(img)
+</code></pre>
+
+メリット : 開発最速・1 台完結  
+デメリット : 同時アクセスに弱い／課金機能なし
+
+月額例 : AWS g5.xlarge 1 台で ~¥85,000
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="qa-item">
+      <label for="q9" class="qa-question">Q9. ユーザー側に GPU は必要？</label>
+      <input type="checkbox" id="q9">
+      <div class="qa-answer">
+不要です。GPU はサーバー側のみ。  
+ユーザー端末はテキストを送り生成画像を受け取るだけなのでスマホでも動きます。
+      </div>
+    </div>
+
     <p style="text-align:center;margin-top:40px;">
       <a href="index.html" class="nav-btn">▲ トップへ戻る ▲</a>
     </p>
